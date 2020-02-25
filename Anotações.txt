@@ -1,0 +1,136 @@
+O que é o Angular?
+ - Angular é um framework web, mobile e desktop.
+ Ref.: https://angular.io/
+ - Baseado em WebComponents
+ - Sua linguagem de desenvolvimento é o TypeScript
+ - A aplicação Angular, é baseado em módulos, que por sua vez possui componentes e serviços.
+
+Versionamento Semantico
+ - Major tem break tem change, ou seja, quebra a aplicação caso seja feita o upgrade.
+ - Minor são novos recursos e não possui break change.
+ - Patch são correções de bugs e tambem não possui break change.
+ Ref.: https://semver.org/lang/pt-BR/
+ 
+Componente
+ - É um template (visual, html), é uma classe (code behind) e um metadata que é os dados que dizem como que a classe se comporta e com quais arquivos de template, css ela esta ligada.
+ - Inicialmente num site temos 3 componentes, cada qual com sua responsabilidade, um componente para o Header, outro para o Body e outro para o Footer da pagina.
+ 
+TypeScript
+ - É um linguagem criada pela MS, é um SuperSet de Javascript, baseado em OOP e é transpilada para o Javascript e ser interpretado pelos browsers.
+ 
+NPM
+ - É gerenciador de pacotes Node.
+ - É um repositorio de pacotes.
+ Ref.: https://www.npmjs.com/
+ 
+Angular CLI
+ - É um framework para entender linhas de comandos para trabalhar com o Angular.
+ - Comandos:
+	 - Criar aplicação
+	   ng new ...
+	   
+	 - Criar componentes, rotas, services e pipes
+	   ng generate ...
+	   
+	 - Testar aplicação localmente enquanto desenvolve
+	   ng serve ...
+ Ref.: https://cli.angular.io/
+ 
+Estrutura de Pasta e arquivos de uma aplicação Angular
+ - e2e = end two end, pasta onde se coloca os testes
+ - node_modules = pacotes da aplicação, são as dependencias
+ - src = código fonte da aplicação em relação ao projeto
+ - .editorconfig = editor de configuração para trabalhar com o visual studio.
+ - .gitignore = são as extensões que o github vai ignorar durante o upload para o repositorio.
+ - angular.json = arquivo de configuração do projeto.
+ - browserslist = configurações para trabalhar com browsers.
+ - karma.conf.js = configurações para executar os testes.
+ - package.json = referência dos pacotes json instalados.
+ - package-lock.json = versão das referência dos pacotes com lock.
+ - README.md = arquivo do github para descrever sobre a aplicação.
+ - tsconfig.app.json = configurações sobre o typescript.
+ - tsconfig.json = configurações sobre o typescript.
+ - tsconfig.spec.json = configurações sobre o typescript.
+ - tslint.json =  arquivo de configuração sobre o comportamento da identação, sobre como se escreve o código da aplicação.
+ 
+Decorators
+ - Os principais Decorators são:
+   @Component = Indica que a classe é um componente
+   @Injectable = Indica que é uma classe injetavel
+   @NgModule = Indica que a classe é um módulo
+   @Pipe = Indica que é uma classe com configurações para tratamento de como formatar dados na tela.
+   
+Comandos
+ - Atualizar o npm com a ultima versão 
+   npm install npm@latest -g
+   
+ - Instalar/atualizar globalmente (-g) o Angular CLI
+   npm install -g @angular/cli
+   
+ - Executa a aplicação simulando-a em ambiente de produção (--prod)
+   ng serve --prod
+   
+ - Gera os arquivos para build para produção.
+   ng build --prod
+   
+ - Gerar componentes
+   ng generate component NomeComponent
+   ng g c NomeComponent
+   
+ - Criar um projeto com os pacotes basicos (--minimal) e sem os arquivos do git (-g)  
+   ng new --help
+   ng new --minimal -g MeuProjeto 
+
+ - Comando para verificar atualizações pendentes do projeto apos instalação do pacote check-updates.
+   npm i -g npm-check-updates (instalação do pacote)
+   ncu (comando para verificar atualizações)
+   ncu -u (comando para atualizar pacotes)
+   
+Tipos de data binding
+ - Interpolation: passa o valor da variavel do componente para o texto do template (one-way binding)
+   <label>Nome: {{meuDado}} </label>
+   
+ - Property Binding: passa o valor da variavel do componente para a propriedade do template  (one-way binding)
+   <img [src]="minhaUrl">
+   
+ - Event Binding: passa o evento do template para a chamada de uma função do componente (one-way binding)
+   <button (click)='clickContador()'>Clique-me</button>
+   
+ - Two-way Binding: Exibe e atualiza um dado nas duas direções (template, componente)
+   <input class="form-control" type="text" [(ngModel)]="evento.nome" />
+   
+Debug
+Existem 2 formas de realizar o debug de uma aplicação Angular:
+ - Pode ser feito no proprio browser, em inspecionar elementos, na guia Sources e no diretorio webpack para encontrar os arquivos para colocar os break point e debugar.
+ - Pode ser feito no VS Code com a instalação da extensão Debugger form Chrome.
+   Apos instalação, Em Debug é necessário clicar em Add Configuration e escolher a opção Chrome e alterando a porta da aplicação (ex.: 4200).
+   
+Angular Ivy
+ - Novo compilador do Angular, é mais rapido, mais performatico pois reduz ainda mais o numero de arquivos para o servidor.
+ - Procedimentos para configurar e usar o Ivy:
+   No arquivo tsconfig.json habilitar o ivy na sessão angularCompilerOptions:
+     "enableIvy": true
+   No arquivo angular.json habilitar o AOT na sessão Projects
+     projects -> architect -> options -> aot = true 
+
+
+Uteis:
+Real-time data update in chart.js using Socket.io | Angular Socket.io client   
+https://www.youtube.com/watch?v=MCYIQXeoU30
+
+Templates:
+ - Bootstrap (getbootstrap.com)
+ - Angular Material
+ 
+JSON Server
+ - Usado para criar APIs Fakes
+ - Instalação via NPM:
+   npm i json-server
+ - Subir a API fake com o arquivo json criado:
+   json-server --watch produtos.json
+Ref.: https://www.npmjs.com/package/json-server
+
+Observações:
+Não misturar JQuery com Angular, pois são dois framework diferentes para a mesma finalidade.
+Para usar a funcionalidade de Javascript com o Bootstrap é recomendavel usar o package ngx-boostrap.
+Se apenas o CSS usar: <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
